@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilderService } from '../../services/form-builder.service';
 
@@ -12,6 +12,8 @@ import { FormBuilderService } from '../../services/form-builder.service';
 export class FormPreviewComponent implements OnInit {
   formData: any = {};
   Array: any=Array;
+  @Input() submitted = false;
+
 
   constructor(private formBuilderService: FormBuilderService) {}
 
@@ -47,7 +49,9 @@ export class FormPreviewComponent implements OnInit {
 
     return String(value);
   }
-
+  getDataKeysLength(): number {
+    return Object.keys(this.formData).length;
+  }
   // Get object entries for display
   getEntries(obj: any): [string, any][] {
     return Object.entries(obj);
