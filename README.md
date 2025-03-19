@@ -47,7 +47,7 @@ The project consists of several key components:
 
 2. Navigate to the project directory:
    ```
-   cd angular-json-form-builder
+   cd iqraTask-dynamicForm
    ```
 
 3. Install dependencies:
@@ -109,8 +109,7 @@ src/
 │   │   └── form-submission/
 │   ├── models/
 │   ├── services/
-│   ├── directives/
-│   └── pipes/
+│ 
 ├── assets/
 └── environments/
 ```
@@ -119,7 +118,7 @@ src/
 - `FormBuilderComponent`: Main component for building forms
 - `FormFieldsComponent`: Handles different field types
 - `FormPreviewComponent`: Displays the live form preview
-- `FormSubmissionComponent`: Manages form submission
+- `FormSubmissionComponent`: Manages form submission and download it in json format 
 
 ## Performance Optimization
 - OnPush change detection strategy

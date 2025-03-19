@@ -11,7 +11,7 @@ import { FormBuilderService } from '../../services/form-builder.service';
 })
 export class FormPreviewComponent implements OnInit {
   formData: any = {};
-  Array: any;
+  Array: any=Array;
 
   constructor(private formBuilderService: FormBuilderService) {}
 
