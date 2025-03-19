@@ -19,6 +19,9 @@ export class FormSubmissionComponent {
   showConfirmation = false;
   submittedData: any = null;
 
+  // Add filename property for download
+  jsonFilename: string = 'form-data.json';
+
   onSubmit(): void {
     if (this.form.valid) {
       const formData = this.form.value;
@@ -38,6 +41,33 @@ export class FormSubmissionComponent {
   dismissConfirmation(): void {
     this.showConfirmation = false;
     this.submittedData = null;
+  }
+
+  // Add download method
+  downloadJson(): void {
+    if (!this.submittedData) return;
+
+    // Create a JSON string from the submitted data
+    const jsonString = JSON.stringify(this.submittedData, null, 2);
+
+    // Create a blob from the JSON string
+    const blob = new Blob([jsonString], { type: 'application/json' });
+
+    // Create a URL for the blob
+    const url = window.URL.createObjectURL(blob);
+
+    // Create a temporary anchor element to trigger the download
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = this.jsonFilename;
+
+    // Append to the body, click, and remove
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Release the URL to free up memory
+    window.URL.revokeObjectURL(url);
   }
 
   private markFormGroupTouched(formGroup: FormGroup): void {
