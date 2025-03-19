@@ -47,7 +47,8 @@ The project consists of several key components:
 
 2. Navigate to the project directory:
    ```
-   cd angular-json-form-builder
+   cd iqraTask-dynamicForm
+
    ```
 
 3. Install dependencies:
