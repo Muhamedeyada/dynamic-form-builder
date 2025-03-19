@@ -1,0 +1,73 @@
+<div class="bg-white shadow rounded-lg p-4">
+  <h3 class="text-lg font-medium text-gray-900 mb-4">Form Data Preview</h3>
+
+  <div *ngIf="!hasProperties(formData)" class="text-gray-500 text-sm">
+    Form data will appear here as you fill out the form.
+  </div>
+
+  <div *ngIf="hasProperties(formData)" class="space-y-3">
+    <div
+      *ngFor="let entry of getEntries(formData); trackBy: trackByKey"
+      class="border-b border-gray-200 pb-2 last:border-b-0"
+    >
+      <div class="flex flex-col">
+        <span class="text-sm font-medium text-gray-700">{{ entry[0] }}</span>
+
+        <!-- Show simple values directly -->
+        <ng-container
+         *ngIf="typeof entry !== 'object' || entry[1] === null"
+        >
+          <span class="text-sm text-gray-900">{{ formatValue(entry[1]) }}</span>
+        </ng-container>
+
+        <!-- Show object values recursively -->
+        <ng-container
+        *ngIf="typeof entry[1] === 'object' && entry[1] !== null"
+        >
+          <!-- Handle arrays -->
+          <ng-container *ngIf="Array.isArray(entry[1])">
+            <div
+              *ngFor="let item of entry[1]; let i = index"
+              class="ml-4 mt-1 border-l-2 border-gray-200 pl-2"
+            >
+              <div class="text-xs font-medium text-gray-500">
+                Item {{ i + 1 }}
+              </div>
+              <div
+                *ngFor="let subEntry of getEntries(item); trackBy: trackByKey"
+                class="text-sm"
+              >
+                <span class="font-medium text-gray-600"
+                  >{{ subEntry[0] }}:</span
+                >
+                <span class="text-gray-900">{{
+                  formatValue(subEntry[1])
+                }}</span>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- Handle nested objects -->
+          <ng-container *ngIf="!Array.isArray(entry[1])">
+            <div class="ml-4 mt-1 border-l-2 border-gray-200 pl-2">
+              <div
+                *ngFor="
+                  let subEntry of getEntries(entry[1]);
+                  trackBy: trackByKey
+                "
+                class="text-sm"
+              >
+                <span class="font-medium text-gray-600"
+                  >{{ subEntry[0] }}:</span
+                >
+                <span class="text-gray-900">{{
+                  formatValue(subEntry[1])
+                }}</span>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="bg-white shadow rounded-lg mb-6">
+  <div class="px-6 py-5 border-b border-gray-200">
+    <h3 class="text-lg font-medium leading-6 text-gray-900">
+      {{ formConfig.title }}
+    </h3>
+    <p *ngIf="formConfig.description" class="mt-1 text-sm text-gray-500">
+      {{ formConfig.description }}
+    </p>
+  </div>
+
+  <div class="p-6">
+    <form [formGroup]="form">
+      <!-- Loop through form groups -->
+      <div *ngFor="let group of formConfig.groups" class="mb-8">
+        <h4
+          *ngIf="group.title"
+          class="text-base font-medium text-gray-900 mb-2"
+        >
+          {{ group.title }}
+        </h4>
+        <p *ngIf="group.description" class="text-sm text-gray-500 mb-4">
+          {{ group.description }}
+        </p>
+
+        <!-- Render form fields for this group -->
+        <div *ngFor="let field of group.fields">
+          <app-form-field [field]="field" [form]="form"></app-form-field>
+        </div>
+      </div>
+
+      <!-- Form submission controls -->
+      <app-form-submission
+        [form]="form"
+        [submitButtonText]="formConfig.submitButtonText || 'Submit'"
+        [cancelButtonText]="formConfig.cancelButtonText || 'Cancel'"
+        (formSubmit)="onSubmit($event)"
+        (formCancel)="onCancel()"
+      >
+      </app-form-submission>
+    </form>
+  </div>
+</div>
+
+<!-- Form Preview Panel -->
+<app-form-preview></app-form-preview>

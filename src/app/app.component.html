@@ -1,0 +1,48 @@
+<div class="min-h-screen bg-gray-100 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-900">{{ title }}</h1>
+      <p class="mt-2 text-lg text-gray-600">
+        Build dynamic forms with JSON configuration
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2">
+        <!-- Dynamic Form Component -->
+        <app-dynamic-form [formConfig]="formConfig"></app-dynamic-form>
+      </div>
+
+      <div class="lg:col-span-1">
+        <div class="bg-white shadow rounded-lg p-6 mb-6">
+          <h2 class="text-lg font-medium text-gray-900 mb-4">How It Works</h2>
+          <p class="text-sm text-gray-600 mb-3">
+            This form is dynamically generated from a JSON configuration. The
+            builder supports:
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 list-disc pl-5">
+            <li>Multiple input types (text, email, password, select, etc.)</li>
+            <li>Form validation with custom error messages</li>
+            <li>Nested form groups</li>
+            <li>Array fields (repeatable sections)</li>
+            <li>Real-time data preview</li>
+            <li>Form submission handling</li>
+          </ul>
+        </div>
+
+        <!-- <div class="bg-white shadow rounded-lg p-6"> -->
+        <!-- <h2 class="text-lg font-medium text-gray-900 mb-4">
+            JSON Configuration
+          </h2>
+          <p class="text-sm text-gray-600 mb-3">
+            Try modifying the configuration in app.component.ts to see how the
+            form changes!
+          </p> -->
+        <!-- <div class="bg-gray-50 p-3 rounded text-xs overflow-y-auto">
+            <pre>{{ formConfig | json }}</pre>
+          </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
