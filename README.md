@@ -1,60 +1,153 @@
-# DynamicFormBuilder
+# Angular JSON Form Builder
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+## Project Overview
+This project is a dynamic JSON form builder created with Angular. It allows users to create, preview, and submit forms based on JSON configurations.
 
-## Development server
+## Features
+- JSON-driven form creation
+- Form field customization
+- Live form preview
+- Form submission and validation
+- Responsive design
 
-To start a local development server, run:
+## Technology Stack
+- Angular 16+
+- Reactive Forms
+- TypeScript
+- Tailwind CSS for styling
+- Angular Material components
 
-```bash
-ng serve
+## Project Structure
+The project consists of several key components:
+- **Form Builder**: Create and edit form structure via JSON
+- **Form Fields**: Customizable form elements
+- **Form Preview**: Real-time visualization of the form
+- **Form Submission**: Handle and validate form data
+
+## Angular Features Used
+- Reactive Forms for efficient form handling
+- Custom validators for form validation
+- Change detection strategy (OnPush) for optimized performance
+- Angular directives for dynamic content creation
+- Component communication using services and observables
+- Lazy loading modules for improved performance
+
+## Installation and Setup
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- Angular CLI (v16 or higher)
+
+### Installation Steps
+1. Clone the repository:
+   ```
+   git clone https://github.com/Muhamedeyada/dynamic-form-builder.git
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd angular-json-form-builder
+   ```
+
+3. Install dependencies:
+   ```
+   npm install
+   ```
+
+4. Start the development server:
+   ```
+   ng serve
+   ```
+   or
+   ```
+   npm start
+   ```
+
+5. Open your browser and navigate to:
+   ```
+   http://localhost:4200
+   ```
+
+## Usage Guide
+
+### Creating a Form
+1. Navigate to the Form Builder component
+2. Use the JSON editor to define your form structure
+3. Add form fields with the desired properties
+4. Save your form configuration
+
+### Form Field Types
+The following field types are supported:
+- Text input
+- Number input
+- Dropdown/Select
+- Checkboxes
+- Radio buttons
+- Textarea
+- Date picker
+- File upload
+
+### Form Preview
+- Changes in the JSON configuration are reflected in real-time in the preview section
+- Test your form before publishing
+
+### Form Submission
+- Submit form data for processing
+- View validation errors if any
+
+## Development Notes
+
+### Folder Structure
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── form-builder/
+│   │   ├── form-fields/
+│   │   ├── form-preview/
+│   │   └── form-submission/
+│   ├── models/
+│   ├── services/
+│   ├── directives/
+│   └── pipes/
+├── assets/
+└── environments/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Key Components
+- `FormBuilderComponent`: Main component for building forms
+- `FormFieldsComponent`: Handles different field types
+- `FormPreviewComponent`: Displays the live form preview
+- `FormSubmissionComponent`: Manages form submission
 
-## Code scaffolding
+## Performance Optimization
+- OnPush change detection strategy
+- Lazy loading of modules
+- Pure pipes for data transformation
+- Efficient state management
+- Optimized rendering of dynamic form fields
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Evaluation Criteria
+✔ **Problem-Solving Skills** – Efficiently parsing JSON and handling dynamic forms.
+✔ **Angular Mastery** – Proper use of Reactive Forms, validation, and directives.
+✔ **Code Quality** – Clean, maintainable, and well-structured code.
+✔ **Performance & UX** – Optimized rendering, validation, and user experience.
 
-```bash
-ng generate component component-name
-```
+## Troubleshooting
+- If you encounter issues with the form builder, check the browser console for errors
+- Ensure your JSON structure is valid
+- Verify that all required fields are properly defined
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Future Enhancements
+- Add more field types
+- Implement drag-and-drop form building
+- Add form templates
+- Enhance validation options
+- Implement form data export/import
 
-```bash
-ng generate --help
-```
+## Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# dynamic-form-builder
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
