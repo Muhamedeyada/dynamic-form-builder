@@ -37,7 +37,9 @@ export class FormFieldComponent implements OnInit {
   get formArray(): FormArray {
     return this.form.get(this.field.name) as FormArray;
   }
-
+  get arrayItems() {
+    return this.formArray?.controls as FormGroup[];
+  }
   hasError(): boolean {
     const control = this.formControl;
     return control

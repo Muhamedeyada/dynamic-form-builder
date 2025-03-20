@@ -33,26 +33,34 @@ export class FormBuilderService {
 
   private createFormGroupFromFields(fields: FormFieldConfig[]): FormGroup {
     const group = this.fb.group({});
-
+  
     fields.forEach((field) => {
       const validators = this.getValidators(field);
-
+  
       if (field.type === 'array' && field.fields) {
-        // Handle repeatable fields as FormArray
-        const formArray = this.fb.array([]);
+        // Create an empty FormArray with an initial empty group
+        const formArray = this.fb.array([] as FormGroup[]);
         group.addControl(field.name, formArray);
+        
+        // Add initial empty group if needed
+        if (field.value && Array.isArray(field.value) && field.value.length > 0) {
+          field.value.forEach(itemValue => {
+            const itemGroup = this.createFormGroupFromFields(field.fields ?? []);
+            itemGroup.patchValue(itemValue);
+            formArray.push(itemGroup);
+          });
+        }
       } else {
-        // Handle regular form fields
         group.addControl(
           field.name,
           this.fb.control(field.value || '', validators)
         );
       }
     });
-
+  
     return group;
   }
-
+  
   addFieldToArray(
     formGroup: FormGroup,
     fieldName: string,
